@@ -1,118 +1,113 @@
-Unreal Engine 5 Generalist – Практический тест по программированию
-==================================================
+Unreal Engine 5 Generalist – Practical Programming Test
+Overview
 
-Обзор теста
---------------
-Роль: Разработчик игр на Unreal Engine (Generalist)
-Тип теста: Практический проект по программированию
-Версия движка: Unreal Engine 5.6 или новее
-Основной язык: C++ (только Blueprint для анимации, пользовательского интерфейса или данных; основная логика должна быть на C++)
-Ориентировочная продолжительность: 1-2 дня
-Целевая платформа: PC-Windows x64
-Результат: Сжатая папка проекта + краткое пояснение в формате PDF или любом другом формате
+Role: Game Developer (Generalist)
 
-Описание задачи
------------------
-Создать новый уровень Unreal Engine, который проведет игрока через короткую последовательность действий:
+Type: Practical programming project
 
-1. Переходы камеры (вступление от третьего лица → 1. (от первого лица)
-2. Базовое управление движением от первого лица + управление мышью
-3. Система миссий с визуальными индикаторами (уведомления пользовательского интерфейса + индикаторы/маркеры)
-4. Интерактивная дверь, запертая 4-значным цифровым паролем
-5. Финальная анимация победы после открытия двери
+Engine version: Unreal Engine 5.6 or newer
 
-Вся игровая логика и поведение миссий должны быть написаны на C++, пользовательский интерфейс (виджеты) могут быть смешаны.
-Вы можете использовать любые существующие анимации, модели, звуки и текстуры, но вы не можете копировать готовый код C++ или целые виджеты пользовательского интерфейса из внешних источников.
-Все функции должны быть адаптивными.
+Primary language: C++ (Blueprints only for animation, UI, or data; core logic must be in C++)
 
-Подробные функциональные требования (контрольный список)
----------------------------------------------
-Кандидат должен реализовать все из перечисленного ниже. Оценщик будет оценивать каждый пункт как «Пройдено/Не пройдено».
+Estimated duration: 1–2 days
 
-3.1 Камера и начало уровня
-[ ] Уровень загружается с кинематографической камерой, показывающей медленное, плавное движение к персонажу игрока.
+Target platform: PC Windows x64
 
-[ ] В конце движения отображается эффект «закрытых глаз» (например, затемнение до черного или виньетка + смешение).
-[ ] После смешения вид переключается на вид от первого лица (стандартная камера FPS).
+Deliverable: Compressed project folder + short write-up in PDF or any other format
+Task Description
 
-[ ] Угол обзора (FOV) устанавливается на комфортное значение (например, 90°).
+Create a new Unreal Engine level that walks the player through a short sequence of actions:
 
-3.2 Управление от первого лица
-[ ] Стандартный вид мыши (тангаж и рыскание) с соответствующим ограничением.
+Camera transitions (third-person cinematic intro → first-person view)
+Basic first-person movement + mouse look
+Mission system with visual indicators (UI notifications + indicators/markers)
+Interactive door locked with a 4-digit numeric password
+Final victory animation after the door is opened
 
-[ ] Клавиши движения: W/A/S/D для движения вперед/влево/назад/вправо.
+All gameplay logic and mission behavior must be written in C++; UI (widgets) may be mixed.
 
-3.3 Система миссий и индикаторы
-[ ] Система миссий реализована на C++.
+You may use any existing animations, models, sounds, and textures, but you may not copy ready-made C++ code or entire UI widgets from external sources.
 
-[ ] В начале отображается первая миссия: «Перейти к точке миссии».
+All features must be responsive.
+Detailed Functional Requirements (Checklist)
 
-[ ] Индикатор мира (значок/любой знак) указывает на целевое местоположение.
+The candidate must implement all of the following. The evaluator will mark each item as Pass/Fail.
+3.1 Camera & Level Start
 
-[ ] При активации, изменении или завершении миссии появляется уведомление пользовательского интерфейса с плавной анимацией (появление + затухание).
+[ ] Level loads with a cinematic camera showing a slow, smooth move toward the player character.
 
-[ ] Первая миссия завершается, когда игрок достигает триггерного объема, расположенного рядом с дверью.
+[ ] At the end of the move, an "eyes closing" effect is displayed (e.g. fade to black or vignette + blend).
 
-3.4 Дверь и парольный замок
-[ ] Дверь представляет собой интерактивную сетку.
-[ ] После завершения первой миссии задание обновляется до: «Откройте дверь — введите 4-значный пароль».
-[ ] Игрок может взаимодействовать с дверью (нажать клавишу, например, E), чтобы открыть виджет пароля.
-[ ] Виджет отображает: 4 поля ввода (только цифры) и способ изменения каждой цифры (клавиши со стрелками или прямой ввод).
-[ ] Неверный пароль → отображается сообщение об ошибке (исчезает через 2 секунды); дверь остается заблокированной.
+[ ] After the blend, the view switches to first-person (standard FPS camera).
 
-[ ] Правильный пароль (фиксированный 4-значный код, например, 1234) → виджет закрывается с плавной анимацией, дверь открывается (плавное вращение/скольжение/масштабирование).
+[ ] FOV is set to a comfortable value (e.g. 90°).
+3.2 First-Person Controls
 
-[ ] После открытия двери миссия помечается как завершенная.
+[ ] Standard mouse look (pitch and yaw) with appropriate clamping.
 
-3.5 Финальная анимация победы
-[ ] Только после завершения миссии с дверью персонаж игрока воспроизводит праздничную анимацию (поднимает руки, прыгает, танцует и т. д.).
+[ ] Movement keys: W/A/S/D for forward/left/backward/right.
+3.3 Mission System & Indicators
 
-[ ] Анимация запускается ровно один раз в этот момент.
+[ ] Mission system implemented in C++.
 
-Технические ограничения и правила
------------------------------
-- Только C++ для логики: логика миссии, обработка ввода, создание/привязка виджетов, игровой процесс должны быть на C++.
-Blueprints разрешены только в качестве контейнеров данных (ссылки на анимацию), UI, UX, анимаций, визуальных элементов или оформления уровней.
+[ ] First mission displayed at start: "Go to the mission point."
 
-- UI должен быть на C++: виджет пароля и виджет уведомления о миссии из C++ (подкласс UUserWidget).
-Макет виджетов может быть разработан в UMG, но вся логика привязки/взаимодействия должна быть на C++.
+[ ] World indicator (icon/any sign) points to the target location.
 
-- Ресурсы: любые анимации/звуки/меши/материалы, которые у вас уже есть или которые вы создаете временно.
-Не копируйте целые готовые примеры проектов Unreal для основной логики.
+[ ] UI notification with smooth animation (fade in + fade out) appears on mission activate/change/complete.
 
-- Тип проекта: проект должен быть написан на C++ (иметь файл .uproject с "Modules" и .Build.cs).
+[ ] First mission completes when the player reaches a trigger volume near the door.
+3.4 Door & Password Lock
 
-- Запрещены дополнительные плагины или сторонние библиотеки: только стандартные модули Unreal Engine 5.
+[ ] Door is an interactive mesh.
 
-- Документация: код должен быть прокомментирован (четкие встроенные комментарии). Предоставьте краткий документ в виде примера PDF-файла или любого другого документа, объясняющего архитектуру и предположения.
+[ ] After the first mission completes, the objective updates to: "Open the door — enter the 4-digit password."
+
+[ ] Player can interact with the door (press a key, e.g. E) to open the password widget.
+
+[ ] Widget displays: 4 input fields (digits only) and a way to change each digit (arrow keys or direct input).
+
+[ ] Wrong password → error message displayed (disappears after 2 seconds); door remains locked.
+
+[ ] Correct password (fixed 4-digit code, e.g. 1234) → widget closes with smooth animation, door opens (smooth rotation/sliding/scaling).
+
+[ ] After the door opens, the mission is marked as complete.
+3.5 Final Victory Animation
+
+[ ] Only after the door mission is complete, the player character plays a celebration animation (raises hands, jumps, dances, etc.).
+
+[ ] Animation triggers exactly once at that moment.
+Technical Constraints & Rules
+
+C++ only for logic: mission logic, input handling, widget creation/binding, gameplay must be in C++. Blueprints are allowed only as data containers (animation references), UI/UX, animations, visual elements, or level dressing.
+UI must be C++: password widget and mission notification widget from C++ (subclass of UUserWidget). Widget layouts may be designed in UMG, but all binding/interaction logic must be in C++.
+Assets: any animations/sounds/meshes/materials you already have or create temporarily. Do not copy entire ready-made Unreal example projects for the core logic.
+Project type: project must be C++ (have a .uproject file with "Modules" and a .Build.cs).
+No additional plugins or third-party libraries: only standard Unreal Engine 5 modules.
+Documentation: code must be commented (clear inline comments). Provide a short document (PDF or any format) explaining the architecture and assumptions.
+
+Deliverables
+
+Full project folder (archived), excluding: Intermediate/, Saved/, DerivedDataCache/, Binaries/, .vs/
+Readme.pdf (max 2 pages) containing:
 
 
-Результаты работы
--------------
-1. Полная папка проекта (в архиве), за исключением: Intermediate/, Saved/, DerivedDataCache/, Binaries/, .vs/
-2. Файл Readme.pdf (максимум 2 страницы), содержащий:
+Brief description of the main C++ classes and their roles
+Known issues or unfinished features
+Time spent on the test
+How to run (e.g. "Open TestLevel and press Play")
 
-- Краткое описание основных классов C++ и их функций
 
-- Известные проблемы или незавершенные функции
+Short video (optional but recommended) showing the test project in action (max 2 minutes)
 
-- Время, затраченное на тестирование
+Evaluation Criteria
 
-- Инструкции по запуску (например, «Откройте уровень TestLevel и нажмите Play»)
-3. Короткое видео (необязательно, но рекомендуется), демонстрирующее результат работы тестового проекта (максимум 2 минуты)
+Feature completion: all checklist items work, no major bugs.
+Code readability and documentation.
+Optimization and performance.
+Architecture and UE5 best practices.
+Execution speed.
 
-Критерии оценки
----------------------------------------
-- Завершение функциональности: все пункты контрольного списка работают, нет серьезных ошибок.
+Submission
 
-- Читаемость кода и документация.
-
-- Оптимизация и производительность.
-
-- Архитектура и лучшие практики UE5.
-
-- Скорость выполнения.
-
-Контакты и подача заявок
----------------------
-Подайте заявку через [выбранную вами платформу]. Крайний срок: [укажите дату].
+Submit via [your chosen platform]. Deadline: [specify date].
